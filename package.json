@@ -1,0 +1,95 @@
+{
+    "name": "vscode-open-in-github",
+    "displayName": "vscode-open-in-github",
+    "description": "Open files in github",
+    "publisher": "arlandi",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "homepage": "https://github.com/arlandi/vscode-open-in-github",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/arlandi/vscode-open-in-github.git"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openInGitHubProject",
+        "onCommand:extension.openInGitHubFile",
+        "onCommand:extension.openInGitHubBlame",
+        "onCommand:extension.openInGitHubHistory",
+        "onCommand:extension.openInGitHubCompare"
+    ],
+    "main": "./src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openInGitHubProject",
+                "title": "Open In Github: Project"
+            },
+            {
+                "command": "extension.openInGitHubFile",
+                "title": "Open in GitHub: File"
+            },
+            {
+                "command": "extension.openInGitHubBlame",
+                "title": "Open In GitHub: Blame"
+            },
+            {
+                "command": "extension.openInGitHubHistory",
+                "title": "Open In GitHub: History"
+            },
+            {
+                "command": "extension.openInGitHubCompare",
+                "title": "Open In Github: Compare branch"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Open in GitHub",
+            "properties": {
+                "openInGitHub.defaultBranch": {
+                    "scope": "resource",
+                    "type": "string",
+                    "default": "develop",
+                    "description": "Controls which branch will be treated as default."
+                },
+                "openInGitHub.defaultRemote": {
+                    "scope": "resource",
+                    "type": "string",
+                    "default": "origin",
+                    "description": "Controls which remote will be treated as default."
+                },
+                "openInGithub.maxBuffer": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 204800,
+                    "description": "Controls the `maxBuffer` allowed when executing git commands."
+                },
+                "openInGitHub.excludeCurrentRevision": {
+                    "scope": "resource",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Determines whether to disable URL suggestions for the current revision (commit SHA)"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21",
+        "eslint": "^4.11.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "opn": "^5.4.0",
+        "ramda": "^0.25.0"
+    }
+}
