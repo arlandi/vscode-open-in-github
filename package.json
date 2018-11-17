@@ -2,7 +2,7 @@
     "name": "vscode-open-in-github",
     "displayName": "vscode-open-in-github",
     "description": "Open files in github",
-    "publisher": "arlandi",
+    "publisher": "anggiarlandi",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.29.0"
